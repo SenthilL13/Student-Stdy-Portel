@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html' %} {% load static %} {% load crispy_forms_tags
+%} {% block content %}
+<section class="text-center container">
+  <h2>Search articles in Wikipedia</h2>
+  <p>Just enter the search query to obtain the results</p>
+  <b>Enter without any space</b>
+  <form action="" method="get">
+    <input
+      type="text"
+      name="search"
+      class="form-control"
+      placeholder="Search Wikipedia"
+    />
+    <input class="btn btn-danger mt-3" type="submit" value="Submit" />
+  </form>
+  <br />
+
+  {% if data %}
+  <div class="container">
+    <div class="content-section p-0 mt-5">
+      <div class="custom-header">
+        <h2>{{ data.title }}</h2>
+      </div>
+
+      <hr class="p-0 m-0" />
+      <p class="description m-5 p-5">{{ data.extract }}</p>
+      <hr />
+      <a href="{{ data.content_urls.desktop.page }}" target="_blank"
+        >Read more on Wikipedia</a
+      >
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endblock content %}

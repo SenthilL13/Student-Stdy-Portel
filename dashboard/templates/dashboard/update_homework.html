@@ -1,0 +1,17 @@
+{% extends 'dashboard/base.html' %} {% load static %} {% load crispy_forms_tags
+%} {% block content %}
+
+<html>
+  <head>
+    <title>Update Homework</title>
+  </head>
+  <body>
+    <h1>Update Homework</h1>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Update</button>
+    </form>
+  </body>
+</html>
+
+{% endblock content %}
