@@ -3,6 +3,7 @@ from django.forms import widgets
 from . models import *
 from django.contrib.auth.forms import UserCreationForm
 
+
 class NotesForm(forms.ModelForm):
     class Meta:
         model = Notes
@@ -14,10 +15,11 @@ class DateInput(forms.DateInput):
 class HomeworkForm(forms.ModelForm):
     class Meta:
         model = Homework
-        widgets ={
-            'due':forms.DateInput(attrs={'type':'date'}),
-            }
-        fields = ['subject','title','description','due', 'is_finished']
+        widgets = {
+            'due': forms.DateInput(attrs={'type': 'date'}),
+        }
+        fields = ['subject', 'title', 'description', 'due', 'is_finished']
+        
 
 class DashboardFom(forms.Form):
     text = forms.CharField(max_length=100,label="Enter yout Seach: ")

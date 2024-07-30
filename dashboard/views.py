@@ -1,5 +1,3 @@
-# dashboard/views.py
-
 from django.shortcuts import render,redirect,get_object_or_404
 from . models import Notes
 from . forms import *
@@ -363,4 +361,4 @@ def profile(request):
 def logout(request):
     auth_logout(request)
     messages.success(request, "You have successfully logged out.")
-    return redirect('logged_out')
+    return redirect('logged_out') 

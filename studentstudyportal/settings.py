@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,8 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dashboard',
     'crispy_forms',
-    'crispy_bootstrap4',
+    'crispy_forms_foundation',
+    'bootstrap4',
+    
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,7 +63,7 @@ ROOT_URLCONF = 'studentstudyportal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, "templates/dashboard")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,4 +138,4 @@ STATICFILES_DIRS = [BASE_DIR/"static"]
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+

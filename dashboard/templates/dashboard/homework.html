@@ -2,6 +2,8 @@
 {% load static %}
 {% block content %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'css/custom_styles.css' %}">
+
 <div class="container">
     {% if not homework_done %}
     <table class="table table-striped table-bordered table-hover table-dark">
@@ -24,7 +26,6 @@
                 <td>{{ homework.title }}</td>
                 <td>{{ homework.description }}</td>
                 <td>{{ homework.due }}</td>
-
                 <td>
                     <form method="POST" action="{% url 'update-homework' homework.id %}">
                         {% csrf_token %}
@@ -52,16 +53,18 @@
     <h4>All homeworks are completed!! Create to have more!!</h4>
     {% endif %}
 </div>
-<div class="container">
-    <form method="POST">
+
+<div class="container mt-5">
+    <form method="POST" class="custom-form">
         {% csrf_token %}
-        <fieldset class="form-group">
+        <fieldset class="form-group p-4 border border-primary rounded">
             <legend class="border-bottom mb-4">Create Homework</legend>
             {{ form.as_p }}
         </fieldset>
-        <div class="form-group">
-            <button href="" class="btn btn-outline-info" type="submit">Create</button>
+        <div class="form-group text-center">
+            <button class="btn btn-outline-info" type="submit">Create</button>
         </div>
     </form>
 </div>
+
 {% endblock content %}

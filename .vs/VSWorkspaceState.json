@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\dashboard",
+    "\\dashboard\\templates",
+    "\\dashboard\\templates\\dashboard",
+    "\\static",
+    "\\staticfiles",
+    "\\static\\css",
+    "\\static\\images",
+    "\\studentstudyportal"
+  ],
+  "SelectedNode": "\\dashboard\\templates\\dashboard\\home.html",
+  "PreviewInSolutionExplorer": false
+}

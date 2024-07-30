@@ -1,36 +1,41 @@
-{% extends 'dashboard/base.html' %} {% load static %} {% load crispy_forms_tags
-%} {% block content %}
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/custom_styles.css' %}">
+
 <div class="container">
-  <div class="row">
-    {% for note in notes %}
-    <div class="col-md-3">
-      <a href="{% url 'notes-details' note.id %}">
-        <div class="card">
-          <div class="card-header">{{ note.title }}</div>
-          <div class="card-body">{{ note.description|truncatechars:100 }}</div>
-          <div class="card-footer mt-auto">
-            <a href="{% url 'delete-note' note.id %}"
-              ><i class="fa fa-trash fa-2x"></i
-            ></a>
-          </div>
+    <div class="row">
+        {% for note in notes %}
+        <div class="col-md-3 mb-4">
+            <a href="{% url 'notes-details' note.id %}" class="text-decoration-none">
+                <div class="card h-100">
+                    <div class="card-header">{{ note.title }}</div>
+                    <div class="card-body">{{ note.description|truncatechars:100 }}</div>
+                    <div class="card-footer mt-auto text-center">
+                        <a href="{% url 'delete-note' note.id %}" class="text-danger">
+                            <i class="fa fa-trash fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </a>
         </div>
-      </a>
+        {% endfor %}
     </div>
-    {% endfor %}
-    <br /><br />
-  </div>
 </div>
-<br /><br />
+<br />
+<br />
 <div class="container">
-  <form method="POST">
-    {% csrf_token %}
-    <fieldset class="form-group">
-      <legend class="border-bottom mb-4">Create Notes</legend>
-    </fieldset>
-    {{ form }}
-    <div class="form-group">
-      <button href="" class="btn btn-outline-info" type="submit">Create</button>
-    </div>
-  </form>
+    <form method="POST" class="custom-form">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Create Notes</legend>
+            {{ form.as_p }}
+        </fieldset>
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-outline-info">Create</button>
+        </div>
+    </form>
 </div>
+
 {% endblock %}
